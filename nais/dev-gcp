@@ -1,0 +1,29 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: "tms-astro-test"
+  namespace: "min-side"
+  labels:
+    "team": "min-side"
+spec:
+  image: {{ image }}
+  port: 8080
+  liveness:
+    path: "/tms-astro-test/api/internal/isAlive"
+    initialDelay: 20
+    timeout: 60
+  readiness:
+    path: "/tms-astro-test/api/internal/isReady"
+    initialDelay: 20
+    timeout: 60
+  replicas:
+    min: 2
+    max: 2
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+    limits:
+      memory: 256Mi
+  ingresses:
+    - "https://www.dev.nav.no/tms-astro-test"
