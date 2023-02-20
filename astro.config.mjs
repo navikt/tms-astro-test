@@ -6,6 +6,6 @@ export default defineConfig({
   integrations: [react()],
   output: "server",
   adapter: node({
-    modde: "standalone"
+    mode: "standalone"
   })
 });
