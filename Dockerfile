@@ -1,8 +1,15 @@
 FROM node:16-alpine
+ENV NODE_ENV production
 
 WORKDIR usr/src/app
+COPY . .
 
-CMD ["node", "./server/entry.mjs"]
+RUN npm ci
+RUN npm run build
 
-ENV PORT=8080
+ENV HOST=0.0.0.0
+ENV PORT=3000
+
+CMD ["node", "./dist/server/entry.mjs"]
+
 EXPOSE $PORT
