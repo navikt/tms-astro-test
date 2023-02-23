@@ -4,7 +4,7 @@ import node from "@astrojs/node";
 
 export default defineConfig({
   base: "/tms-astro-test",
-  trailingSlash: "never",
+  trailingSlash: "ignore",
   integrations: [react()],
   output: "server",
   adapter: node({
