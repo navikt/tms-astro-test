@@ -4,7 +4,7 @@ ENV NODE_ENV production
 WORKDIR usr/src/app
 COPY . .
 
-RUN npm ci
+RUN npm install
 RUN npm run build
 
 ENV HOST=0.0.0.0
