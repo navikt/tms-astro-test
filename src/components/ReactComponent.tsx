@@ -1,5 +1,3 @@
-const ReactComponent = () => {
-  return <h2>React component</h2>;
-};
+const ReactComponent = () => <h2>React component</h2>;
 
 export default ReactComponent;
